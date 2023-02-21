@@ -7,10 +7,10 @@ const Home: NextPage = () => {
   const { data: session } = useSession();
 
   return (
-    <>
+    <div>
       <Header />
       <HeroSection />
-    </>
+    </div>
   );
 };
 

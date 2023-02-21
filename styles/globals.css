@@ -6,6 +6,6 @@
   html,
   body,
   #__next {
-    @apply h-full bg-background text-text;
+    @apply h-full bg-background text-text w-full;
   }
 }
