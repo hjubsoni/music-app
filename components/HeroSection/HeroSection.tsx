@@ -6,14 +6,14 @@ import { PlayCircle, ArrowDown } from 'react-feather';
 function HeroSection() {
   const [isHovered, setIsHOvered] = React.useState(false);
   return (
-    <section className="max-w-7xl mx-auto flex gap-12 px-4 pt-16">
+    <section className="pt-16 px-4 flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
       <MainSong />
       <div className="flex flex-col justify-between">
-        <div className="max-w-[28rem] mt-8">
-          <h1 className="font-bold text-6xl">
+        <div className="mt-8 flex flex-col gap-4">
+          <h1 className="font-bold text-4xl lg:text-6xl">
             Play Your Beloved Music
           </h1>
-          <p className="mt-4 text-gray-200 text-lg">
+          <p className=" text-gray-200 text-lg">
             Selected music from various genres, artists, and
             composers. Play now, completely free and convenient.
           </p>

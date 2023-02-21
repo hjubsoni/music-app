@@ -11,12 +11,12 @@ import {
 
 function MainSong() {
   return (
-    <article className="flex flex-col min-w-[35rem] shadow-lg border border-gray-500 rounded-2xl p-4 gap-4 ">
+    <article className="flex flex-col  shadow-lg border border-gray-500 rounded-2xl p-4 gap-4 max-w-[880px] md:max-w-[400px]">
       <Image
         src="/images/album-img.jpg"
         alt="h"
-        width={546}
-        height={520}
+        width={880}
+        height={880}
         className="rounded-2xl"
         priority={true}
       />
