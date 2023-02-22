@@ -22,7 +22,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setIsHOvered(true)}
             onMouseLeave={() => setIsHOvered(false)}
-            className="border border-primary rounded-2xl flex items-center gap-2 justify-center py-4 px-8"
+            className="border hover:scale-105 border-primary rounded-2xl flex items-center gap-2 justify-center py-4 px-8"
           >
             <span>Show The Plans</span>
             <ArrowDown
