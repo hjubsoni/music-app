@@ -62,6 +62,9 @@ export default NextAuth({
       authorization: SPOTIFY_AUTHORIZATION_URL,
     }),
   ],
+  pages: {
+    signIn: '/login',
+  },
 
   callbacks: {
     async jwt({ token, user, account }) {
