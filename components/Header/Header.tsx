@@ -65,12 +65,12 @@ function Header() {
                 </li>
 
                 <li className="list-none ">
-                  <button
-                    className="text-lg hover:text-primary transition-all "
-                    onClick={() => signIn()}
+                  <Link
+                    href="/login"
+                    className="text-lg hover:text-primary transition-all"
                   >
                     Log In
-                  </button>
+                  </Link>
                 </li>
               </>
             )}
@@ -125,12 +125,9 @@ function Header() {
                       </Link>
                     </li>
                     <li className="p-2">
-                      <button
-                        className="text-xl  "
-                        onClick={() => signIn()}
-                      >
+                      <Link href="/login" className="text-xl">
                         Log In
-                      </button>
+                      </Link>
                     </li>
                   </>
                 )}
