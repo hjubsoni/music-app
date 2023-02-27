@@ -7,7 +7,7 @@ import PremiumSection from '../components/PremiumSection';
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
-
+  console.log(session);
   return (
     <div>
       <Header />
