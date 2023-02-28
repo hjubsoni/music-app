@@ -52,7 +52,12 @@ export async function getServerSideProps(
   context: GetServerSidePropsContext
 ) {
   const providers = await getProviders();
-
+  const token = context.req.cookies['next-auth.session-token'];
+  if (token) {
+    redirect: {
+      return { redirect: { destination: '/player' } };
+    }
+  }
   return {
     props: {
       providers: providers ?? [],
