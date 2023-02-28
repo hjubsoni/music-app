@@ -6,9 +6,6 @@ import SpotifyProvider from 'next-auth/providers/spotify';
 const SPOTIFY_AUTHORIZATION_URL =
   'https://accounts.spotify.com/authorize?' +
   new URLSearchParams({
-    prompt: 'consent',
-    access_type: 'offline',
-    response_type: 'code',
     scope: 'user-read-email,playlist-read-private',
   });
 
@@ -55,7 +52,6 @@ async function refreshAccessToken(token: JWT) {
 }
 
 export default NextAuth({
-  secret: process.env.JWT_SECRET,
   providers: [
     SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -63,26 +59,29 @@ export default NextAuth({
       authorization: SPOTIFY_AUTHORIZATION_URL,
     }),
   ],
-
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/login',
   },
-
+  session: {
+    strategy: 'jwt',
+  },
   callbacks: {
     async jwt({ token, user, account }) {
       if (account && user) {
         return {
+          ...token,
           accessToken: account.access_token,
           accessTokenExpires: account.expires_at! * 1000,
           refreshToken: account.refresh_token,
           user,
         };
       }
-      if (Date.now() < account?.expires_at! * 1000) {
+      if (Date.now() < token.accessTokenExpires) {
         return token;
       }
 
-      return refreshAccessToken(token);
+      return await refreshAccessToken(token);
     },
     async session({
       session,
